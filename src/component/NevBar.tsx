@@ -1,11 +1,12 @@
 import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 const NevBar = () => {
   return (
-    <HStack paddingLeft={"6"}>
+    <HStack paddingX={"4"} justifyContent={"space-between"}>
       <Image src={logo} alt="logo" boxSize={"60px"} />
-      <h1>Logo</h1>
+      <ColorModeSwitch />
     </HStack>
   );
 };
