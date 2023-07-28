@@ -1,4 +1,5 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
+import NevBar from "./component/NevBar";
 
 function App() {
   return (
@@ -8,8 +9,8 @@ function App() {
         lg: `"nav nav" "aside main"`,
       }}
     >
-      <GridItem bg="blue" area={"nav"}>
-        Nav
+      <GridItem area={"nav"}>
+        <NevBar />
       </GridItem>
       <Show above="lg">
         <GridItem bg="red" area={"aside"}>
