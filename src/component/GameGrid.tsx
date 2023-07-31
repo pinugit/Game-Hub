@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
+import { Text } from "@chakra-ui/react";
 
 interface game {
   id: number;
@@ -8,27 +9,34 @@ interface game {
 
 interface gameObjectList {
   count: number;
-  games: game[];
+  results: game[];
 }
 
 const GameGrid = () => {
   const [gamesList, setGamesList] = useState<game[]>([]);
   const [error, setError] = useState("");
 
-  console.log(gamesList);
-
   useEffect(() => {
     apiClient
       .get<gameObjectList>("/games")
-      .then((res) => setGamesList(res.data.games))
-      .catch((err) => setError(err.message));
+      .then((res) => {
+        setGamesList(res.data.results);
+      })
+
+      .catch((err) => {
+        setError(err.message);
+      });
   }, []);
+
   return (
-    <ol>
-      {gamesList.map((game) => (
-        <li>{game.name}</li>
-      ))}
-    </ol>
+    <>
+      {error && <Text>{error}</Text>}
+      <ol>
+        {gamesList.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ol>
+    </>
   );
 };
 

@@ -14,9 +14,7 @@ function App() {
         <NevBar />
       </GridItem>
       <Show above="lg">
-        <GridItem bg="red" area={"aside"}>
-          Aside
-        </GridItem>
+        <GridItem area={"aside"}>Aside</GridItem>
       </Show>
       <GridItem area={"main"}>
         <GameGrid />
