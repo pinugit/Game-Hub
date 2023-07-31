@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import { Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 
@@ -8,11 +6,11 @@ const GameGrid = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ol>
+      <ul>
         {gamesList.map((game) => (
           <li key={game.id}>{game.name}</li>
         ))}
-      </ol>
+      </ul>
     </>
   );
 };
